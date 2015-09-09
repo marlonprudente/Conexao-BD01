@@ -15,8 +15,9 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // TODO code application logic here
+        Integer n = 8;
         
         System.out.print("Antes de Conectar: ");
         System.out.println(ConexaoMySQL.statusConection());
@@ -25,6 +26,11 @@ public class Main {
         
         System.out.print("Depois de Conectar: ");
         System.out.println(ConexaoMySQL.statusConection());
+        
+        ConexaoMySQL.consultar(n);
+        
     }
+            
     
+          
 }

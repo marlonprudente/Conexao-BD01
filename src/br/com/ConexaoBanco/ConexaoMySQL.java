@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 import java.sql.SQLException;
+import java.sql.*;
 
  
 
@@ -150,5 +151,22 @@ Class.forName(driverName);
         return ConexaoMySQL.getConexaoMySQL();
 
     }
+    
+    public static void consultar(Integer id) throws SQLException  
+        {  
+            
+            String sql = "SELECT * FROM livros WHERE GENERO_ID = '" + id + "'"; 
+            Statement stm = ConexaoMySQL.getConexaoMySQL().createStatement();
+            
+            ResultSet rs = stm.executeQuery(sql);
+            while(rs.next()){
+                
+                System.out.println(rs.getString("titulo"));
+            }
+            
+            
+  
+    } 
+ 
 
 }
