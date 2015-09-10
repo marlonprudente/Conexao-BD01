@@ -8,15 +8,16 @@ import java.sql.*;
 
 /**
  *
- * @author a1562339
+ * @author Marlon Prudente
  */
 public class Main {
 
     /**
      * @param args the command line arguments
+     * @throws java.sql.SQLException
      */
     public static void main(String[] args) throws SQLException {
-        // TODO code application logic here
+
         Integer n = 1;
         
         System.out.print("Antes de Conectar: ");

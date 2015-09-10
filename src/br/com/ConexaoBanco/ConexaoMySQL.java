@@ -7,15 +7,18 @@ package br.com.ConexaoBanco;
 
 /**
  *
- * @author a1562339
+ * @author Marlon Prudente
  */
+/*
 import java.sql.Connection;
-
 import java.sql.DriverManager;
-
 import java.sql.SQLException;
-import java.sql.*;
+*OBS: Se fosse somente uma classe para conexão, se importaria apenas isso.
+*/
 
+import java.sql.*;
+/* Estou importando todos os métodos e classes do sql,
+porque esta classe utilizará a maioria, para testes de aprendizado.*/
  
 
 //Início da classe de conexão//
@@ -28,27 +31,24 @@ public class ConexaoMySQL {
 
         public ConexaoMySQL() {
 
-    }
-
- 
+    } 
 
 //Método de Conexão//
 
 public static java.sql.Connection getConexaoMySQL() {
 
         Connection connection = null;          //atributo do tipo Connection
-
- 
+        //Esse atributo receberá as informações para se conectar ao BD.
 
 try {
 
 // Carregando o JDBC Driver padrão
 
 String driverName = "com.mysql.jdbc.Driver";                        
+/*O Drive para Java é conseguido através do próprio site do MySQL, nele está todos os métodos utilizados.
+por padrão, o driverName sempre será este.*/
 
-Class.forName(driverName);
-
- 
+Class.forName(driverName); 
 
 // Configurando a nossa conexão com um banco de dados//
 
@@ -63,8 +63,7 @@ Class.forName(driverName);
             String password = "$$dafuq";      //sua senha de acesso
 
             connection = DriverManager.getConnection(url, username, password);
-
- 
+            /*Através dessa atribuição, conection receberá as informações.*/ 
 
             //Testa sua conexão//  
 
@@ -76,26 +75,19 @@ Class.forName(driverName);
 
                 status = ("STATUS--->Não foi possivel realizar conexão");
 
-            }
+            } 
 
- 
+            return connection; 
 
-            return connection;
-
- 
-
-        } catch (ClassNotFoundException e) {  //Driver não encontrado
-
- 
+        } catch (ClassNotFoundException e) {  //Driver não encontrado 
 
             System.out.println("O driver expecificado nao foi encontrado.");
 
             return null;
 
         } catch (SQLException e) {
-
+            
 //Não conseguindo se conectar ao banco
-
             System.out.println("Nao foi possivel conectar ao Banco de Dados.");
 
             return null;
@@ -113,7 +105,6 @@ Class.forName(driverName);
     public static String statusConection() {
 
         return status;
-
     }
 
   
@@ -125,11 +116,10 @@ Class.forName(driverName);
         try {
 
             ConexaoMySQL.getConexaoMySQL().close();
-
             return true;
 
         } catch (SQLException e) {
-
+            
             return false;
 
         }
@@ -146,11 +136,12 @@ Class.forName(driverName);
 
         FecharConexao();
 
- 
-
         return ConexaoMySQL.getConexaoMySQL();
 
     }
+    
+    /*Método para Consulta ao BD, sendo "rs" a tabela que a conexão retorna, sendo necessário 
+    trabalhar com essa informação, para poder apresentar ao usuário.*/
     
     public static void consultar(Integer id) throws SQLException  
         {  
