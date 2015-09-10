@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
-        Integer n = 8;
+        Integer n = 1;
         
         System.out.print("Antes de Conectar: ");
         System.out.println(ConexaoMySQL.statusConection());

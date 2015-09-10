@@ -52,13 +52,13 @@ Class.forName(driverName);
 
 // Configurando a nossa conexão com um banco de dados//
 
-            String serverName = "200.134.10.33";    //caminho do servidor do BD
+            String serverName = "localhost";    //caminho do servidor do BD
 
-            String mydatabase = "livraria1562339";        //nome do seu banco de dados
+            String mydatabase = "livraria";        //nome do seu banco de dados
 
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
-            String username = "banco120132";        //nome de um usuário de seu BD      
+            String username = "root";        //nome de um usuário de seu BD      
 
             String password = "$$dafuq";      //sua senha de acesso
 
@@ -160,7 +160,8 @@ Class.forName(driverName);
             
             ResultSet rs = stm.executeQuery(sql);
             while(rs.next()){
-                
+                System.out.print(rs.getString("livro_id"));
+                System.out.print(" - ");
                 System.out.println(rs.getString("titulo"));
             }
             
